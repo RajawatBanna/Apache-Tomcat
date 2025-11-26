@@ -1,6 +1,17 @@
-Set up JAVA_HOME in setenv.sh
+Apache Tomcat - https://tomcat.apache.org/
+OpenLogic Java - https://www.openlogic.com/openjdk-downloads
+Sample War file - https://tomcat.apache.org/tomcat-9.0-doc/appdev/sample/
+
+- Set JAVA_HOME at Apache Tomcat Level - 
+add below line in bin/setenv.sh
 export JAVA_HOME="/usr/lib/jvm/java-openjdk"
+
 sudo chmod +x /opt/tomcat/bin/setenv.sh
+
+- Tomcat Admin Manager Rule - 
+add below line in conf/tomcat-users.xml
+<user username="admin" password="admin" roles="manager-gui"/>
+
 
 1. Generate an SSL Certificate
 
@@ -56,13 +67,12 @@ Type=forking
 User=tomcat
 Group=tomcat
 
-Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk"
+Environment="JAVA_HOME=/opt/java/"
 ExecStart=/opt/tomcat/bin/startup.sh
 ExecStop=/opt/tomcat/bin/shutdown.sh
 
 [Install]
 WantedBy=multi-user.target
-
 
 Save and exit the editor.
 
