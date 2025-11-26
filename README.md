@@ -14,6 +14,9 @@ A complete reference for installing, configuring, securing, and running Apache T
 
 ---
 
+Move Apache tomcat folder to /opt/tomcat
+Move OpenLogic JDK folder to /opt/java
+
 # ⚙️ 1. Configure `JAVA_HOME` for Tomcat
 
 Create or edit:
