@@ -99,6 +99,12 @@ Create the service file:
 ```bash
 sudo vim /etc/systemd/system/tomcat.service
 ```
+Create tomcat user and transfer ownership to tomcat user
+
+```bash
+sudo useradd -g tomcat tomcat
+sudo chown -R tomcat:tomcat /opt/tomcat
+```
 
 Add:
 
