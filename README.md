@@ -25,13 +25,7 @@ Create or edit:
 Add:
 
 ```bash
-export JAVA_HOME="/usr/lib/jvm/java-openjdk"
-```
-
-Make it executable:
-
-```bash
-sudo chmod +x /opt/tomcat/bin/setenv.sh
+export JAVA_HOME="/opt/java"
 ```
 
 ---
@@ -61,6 +55,7 @@ keytool -genkey   -keyalg RSA   -keystore ssh.jks   -keysize 2048   -validity 10
 ```
 
 This generates `ssh.jks`.
+Place this file in conf folder
 
 ---
 
@@ -81,7 +76,7 @@ conf/server.xml
     scheme="https"
     secure="true"
     SSLEnabled="true"
-    keystoreFile="ssh.jks"
+    keystoreFile="conf/ssh.jks"
     keystorePass="changeit"
     clientAuth="false"
     sslProtocol="TLS"
@@ -102,7 +97,8 @@ sudo vim /etc/systemd/system/tomcat.service
 Create tomcat user and transfer ownership to tomcat user
 
 ```bash
-sudo useradd -g tomcat tomcat
+sudo groupadd tomcat
+sudo useradd -g tomcat -d /opt/tomcat -s /bin/false tomcat
 sudo chown -R tomcat:tomcat /opt/tomcat
 ```
 
